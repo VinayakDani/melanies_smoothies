@@ -9,10 +9,9 @@ st.write(
     """Choose the fruits you want in your custom smoothie!
     """    )
 
+session = get_active_session()
 cnx =st.connection("snowflake")
 session=cnx.session()
-
-session = get_active_session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 
 cnx =st.connection("snowflake")
