@@ -47,8 +47,8 @@ if ingredient_list:
 
 # New Section to display fruitvice information.
 
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-    st.text(fruityvice_response.json())
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response.json())
     # fv_df = st.dataframe(data=fruityvice_response.json())
     # fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=TRUE)
 
