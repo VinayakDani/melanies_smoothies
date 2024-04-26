@@ -1,6 +1,6 @@
 # Import python packages
 import streamlit as st
-# from snowflake.snowpark.context import get_active_session
+from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -16,8 +16,8 @@ ingredient_list = st.multiselect(
     'Choose up to 5 ingredients:', my_dataframe
 )
 
-cnx =st.connection("snowflake")
-session=cnx.session()
+# cnx =st.connection("snowflake")
+# session=cnx.session()
 
 if ingredient_list:
     ingredients_string = ''
