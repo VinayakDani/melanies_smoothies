@@ -1,17 +1,30 @@
 import streamlit as st
 
-# Title widget
-st.title('This is a title')
+def main():
+	st.title("Streamlit Forms Tutorial")
 
-# Plain text widget
-st.text("This is some text")
 
-# Code widget example
-code = '''def hello():
-            print("Hello, Streamlit!")'''
-st.code(code, language='python')
+	# Method 1: with (Context Manager Approach)
+	with st.form(key='form1'):
+		firstname = st.text_input("Firstname")
+		lastname = st.text_input("Lastname")
+		complete_name = firstname + " " + lastname
 
-# Latex widget example
-st.latex(r'''
-    a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} = \sum_{k=0}^{n-1} ar^k = a \left(\frac{1-r^{n}}{1-r}\right)
-''')
+		submit_button = st.form_submit_button(label="Register")
+
+		if submit_button:
+			st.success("Hello {} you have been regstered!".format(complete_name))
+
+	# Method 2: no 'with' and submitting message outside
+	form2 = st.form(key='form2')
+	username = form2.text_input("Username")
+	jobtype = form2.selectbox("Job", ["Streamlit Master", "NBA Player", "Sailorman"])
+	submit_button2 = form2.form_submit_button("Login")
+
+	if submit_button2:
+			st.success("Hello {} you logged in!".format(username))
+
+
+
+if __name__ == '__main__':
+	main()
