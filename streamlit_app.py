@@ -1,30 +1,14 @@
 import streamlit as st
 
-def main():
-	st.title("Streamlit Forms Tutorial")
+# Wedding details
+bride_name = "Alice"
+groom_name = "Bob"
+invitation_text = "You're invited to our wedding!"
+photo_bride = "bride.jpg"  # Path to bride's photo
+photo_groom = "groom.jpg"  # Path to groom's photo
 
-
-	# Method 1: with (Context Manager Approach)
-	with st.form(key='form1'):
-		firstname = st.text_input("Firstname")
-		lastname = st.text_input("Lastname")
-		complete_name = firstname + " " + lastname
-
-		submit_button = st.form_submit_button(label="Register")
-
-		if submit_button:
-			st.success("Hello {} you have been regstered!".format(complete_name))
-
-	# Method 2: no 'with' and submitting message outside
-	form2 = st.form(key='form2')
-	username = form2.text_input("Username")
-	jobtype = form2.selectbox("Job", ["Streamlit Master", "NBA Player", "Sailorman"])
-	submit_button2 = form2.form_submit_button("Login")
-
-	if submit_button2:
-			st.success("Hello {} you logged in!".format(username))
-
-
-
-if __name__ == '__main__':
-	main()
+# Display content
+st.title(f"{bride_name} & {groom_name}'s Wedding")
+st.markdown(invitation_text)
+st.image(photo_bride, caption=f"{bride_name}", use_column_width=True)
+st.image(photo_groom, caption=f"{groom_name}", use_column_width=True)
