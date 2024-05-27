@@ -1,4 +1,27 @@
 # abc.py
+"'" Git Push 
+1. Local repository setup 
+ local path
+ git init    --> create local git repo
+
+2. add remote repo to git repo (Clone remote repo to local repo)
+in cmd 
+$ git remote add origin gitcloneurl
+
+$ git status
+
+$ git add -A   --> add all file from local to got repo
+
+$ git commit -m "comment"   --> local save changes.
+
+-- Git Push the code
+$ git push origin master 
+$ git status   --> 
+
+
+  
+
+
 
 import pip
 
